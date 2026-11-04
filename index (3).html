@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#090d18">
+<title>CraftCloud — Minecraft Hosting</title>
+<style>
+:root{--bg:#080c16;--panel:#101827;--panel2:#131f32;--line:#26344b;--text:#eef4ff;--muted:#9aaac1;--blue:#4f8cff;--cyan:#36d6cf;--green:#42d392;--red:#ff6b7d}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 15% 0%,#142747 0,transparent 38%),var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}button,input,select{font:inherit}button{cursor:pointer}.wrap{width:min(1120px,92%);margin:auto}.nav{display:flex;align-items:center;justify-content:space-between;padding:22px 0;border-bottom:1px solid #ffffff12}.brand{font-size:22px;font-weight:850;letter-spacing:-.8px}.brand span{color:var(--cyan)}.navlinks{display:flex;gap:18px;align-items:center}.navlinks a{color:var(--muted);text-decoration:none;font-size:14px}.btn{border:0;border-radius:12px;padding:12px 17px;font-weight:750;background:linear-gradient(120deg,var(--blue),#6b6cff);color:white;box-shadow:0 8px 24px #356bdb35}.btn.secondary{background:#1a2940;border:1px solid var(--line);box-shadow:none}.btn.ghost{background:transparent;border:1px solid var(--line);box-shadow:none;color:var(--text)}.btn:disabled{opacity:.5;cursor:not-allowed}.hero{padding:82px 0 60px;display:grid;grid-template-columns:1.2fr .8fr;gap:36px;align-items:center}.eyebrow{color:var(--cyan);font-weight:800;font-size:12px;letter-spacing:2px;text-transform:uppercase}.hero h1{font-size:clamp(40px,6vw,66px);line-height:1.03;letter-spacing:-2.5px;margin:14px 0}.hero h1 span{color:var(--cyan)}.hero p{color:var(--muted);font-size:17px;line-height:1.7;max-width:600px}.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:25px}.visual{background:linear-gradient(145deg,#172b49,#0d1525);border:1px solid #344969;border-radius:24px;padding:25px;box-shadow:0 25px 80px #0007}.server-top{display:flex;justify-content:space-between;align-items:center;color:var(--muted);font-size:13px}.dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--green);margin-right:7px}.terminal{background:#070b13;border:1px solid #24334b;border-radius:14px;padding:18px;margin-top:18px;color:#a9c4e8;font:13px/1.9 ui-monospace,monospace}.terminal b{color:var(--green)}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:14px}.stat{background:#ffffff08;padding:13px;border-radius:12px}.stat strong{display:block;font-size:20px}.stat small{color:var(--muted)}section{padding:55px 0}.section-title{text-align:center;margin-bottom:28px}.section-title h2{font-size:34px;margin:8px}.section-title p{color:var(--muted)}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.card{background:linear-gradient(160deg,var(--panel2),var(--panel));border:1px solid var(--line);border-radius:18px;padding:23px}.card h3{margin:8px 0}.card p,.muted{color:var(--muted);line-height:1.6}.price{font-size:34px;font-weight:850;margin:16px 0}.price small{font-size:13px;color:var(--muted);font-weight:500}.features{padding:0;list-style:none;color:#c5d1e3;line-height:2.1;font-size:14px}.features li:before{content:"✓";color:var(--green);margin-right:9px;font-weight:900}.tag{display:inline-block;padding:5px 9px;border-radius:20px;background:#1a3653;color:#8dc2ff;font-size:11px;font-weight:800}.popular{border-color:#4f8cff;box-shadow:0 0 0 1px #4f8cff30}.hidden{display:none!important}.app{padding:34px 0 70px}.apphead{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:20px}.appgrid{display:grid;grid-template-columns:230px 1fr;gap:18px}.side,.mainpanel{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:18px}.side button{display:block;width:100%;text-align:left;margin:5px 0;background:transparent;color:var(--muted);border:0;padding:12px;border-radius:10px}.side button.active,.side button:hover{background:#1c2d47;color:white}.mainpanel h2{margin-top:0}.notice{border:1px solid #806b2b;background:#332b16;color:#f8df91;border-radius:12px;padding:13px;font-size:13px;line-height:1.5;margin:15px 0}.server-empty{padding:38px 15px;text-align:center;border:1px dashed #34445d;border-radius:15px;color:var(--muted)}.server-card{background:#111e30;border:1px solid var(--line);border-radius:14px;padding:16px;margin-top:12px}.server-card-top{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}.status{font-size:12px;color:#f2d17d}.formrow{display:grid;grid-template-columns:1fr 1fr;gap:12px}.field{margin:12px 0}.field label{display:block;color:#b9c8dc;font-size:13px;margin-bottom:7px}.field input,.field select{width:100%;padding:13px;border-radius:10px;background:#0b1321;color:white;border:1px solid #30415b;outline:none}.field input:focus,.field select:focus{border-color:var(--blue)}.modalback{position:fixed;inset:0;background:#000a;display:grid;place-items:center;padding:16px;z-index:5}.modal{width:min(470px,100%);background:#111b2b;border:1px solid #34445d;border-radius:20px;padding:24px;max-height:90vh;overflow:auto}.modalhead{display:flex;justify-content:space-between;align-items:center}.close{background:transparent;border:0;color:#aab8cc;font-size:25px}.msg{font-size:13px;line-height:1.5;margin:12px 0;padding:11px;border-radius:10px;display:none}.msg.show{display:block}.msg.error{background:#3a1c29;color:#ffb7c2}.msg.success{background:#123529;color:#a8f1ce}.footer{border-top:1px solid #ffffff12;padding:25px 0;color:var(--muted);font-size:13px}.pill{display:inline-block;border:1px solid var(--line);padding:5px 9px;border-radius:20px;color:var(--muted);font-size:12px}
+@media(max-width:800px){.hero{grid-template-columns:1fr;padding-top:55px}.grid{grid-template-columns:1fr}.appgrid{grid-template-columns:1fr}.navlinks a{display:none}.visual{max-width:600px}.hero h1{letter-spacing:-1.5px}.formrow{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header class="wrap nav">
+  <div class="brand">Craft<span>Cloud</span></div>
+  <nav class="navlinks"><a href="#features">Features</a><a href="#plans">Plans</a><button class="btn secondary" id="navLogin">Login</button><button class="btn" id="navSignup">Get started</button></nav>
+</header>
+<main id="landing">
+  <div class="wrap hero">
+    <div><div class="eyebrow">Minecraft server hosting</div><h1>Your world.<br><span>Your rules.</span></h1><p>Launch your next Minecraft adventure with a clean control panel, flexible plans and room to grow. Start with a free plan or choose more resources when you need them.</p><div class="actions"><button class="btn" id="heroStart">Create your account</button><a class="btn ghost" href="#plans" style="text-decoration:none">Explore plans</a></div><p style="font-size:12px">Account signup uses Supabase. Actual Minecraft server provisioning is not connected yet.</p></div>
+    <div class="visual"><div class="server-top"><span>CRAFTCLOUD PANEL</span><span><i class="dot"></i>Panel preview</span></div><div class="terminal"><div><b>✓</b> CraftCloud panel loaded</div><div><b>✓</b> Account services ready to connect</div><div>› Server engine: <b>Awaiting backend</b></div><div>› Your next world starts here_</div></div><div class="stats"><div class="stat"><strong>Free</strong><small>Starter option</small></div><div class="stat"><strong>24/7*</strong><small>Backend dependent</small></div><div class="stat"><strong>Java</strong><small>Minecraft</small></div></div></div>
+  </div>
+  <section id="features"><div class="wrap"><div class="section-title"><div class="eyebrow">Built for players</div><h2>Everything in one panel</h2><p>Simple tools to plan and manage your Minecraft hosting.</p></div><div class="grid">
+    <div class="card"><span class="tag">01 · ACCOUNTS</span><h3>Secure sign-in</h3><p>Create an account with email and password. Your account is handled by Supabase authentication.</p></div>
+    <div class="card"><span class="tag">02 · CONTROL</span><h3>Simple dashboard</h3><p>See your plan, server requests and account details from one place.</p></div>
+    <div class="card"><span class="tag">03 · FLEXIBLE</span><h3>Free and paid plans</h3><p>Choose a starter option or a larger plan. Payment processing can be connected later.</p></div>
+  </div></div></section>
+  <section id="plans"><div class="wrap"><div class="section-title"><div class="eyebrow">Choose your plan</div><h2>Plans for every world</h2><p>These are starter plan options; paid checkout is not enabled yet.</p></div><div class="grid">
+    <div class="card"><span class="tag">STARTER</span><h3>Free</h3><div class="price">Rs. 0 <small>/ month</small></div><ul class="features"><li>Starter server request</li><li>Basic panel access</li><li>Community support</li></ul><button class="btn planBtn" data-plan="Free">Choose Free</button></div>
+    <div class="card popular"><span class="tag">POPULAR</span><h3>Pro</h3><div class="price">Rs. 499 <small>/ month*</small></div><ul class="features"><li>Higher resource request</li><li>Priority support concept</li><li>More server slots concept</li></ul><button class="btn planBtn" data-plan="Pro">Choose Pro</button></div>
+    <div class="card"><span class="tag">ADVANCED</span><h3>Ultra</h3><div class="price">Rs. 999 <small>/ month*</small></div><ul class="features"><li>Largest resource request</li><li>Advanced panel concept</li><li>Priority support concept</li></ul><button class="btn planBtn" data-plan="Ultra">Choose Ultra</button></div>
+  </div><p class="muted" style="text-align:center;font-size:12px">*Illustrative prices only. No payment is collected and no server resources are provisioned yet.</p></div></section>
+</main>
+<section id="dashboard" class="hidden"><div class="wrap app">
+  <div class="apphead"><div><div class="eyebrow">CUSTOMER AREA</div><h1 style="margin:6px 0">Welcome to CraftCloud</h1><div class="muted" id="userEmail"></div></div><button class="btn secondary" id="logoutBtn">Log out</button></div>
+  <div class="appgrid"><aside class="side"><button class="active" data-tab="overview">Overview</button><button data-tab="servers">My servers</button><button data-tab="account">Account</button></aside>
+  <div class="mainpanel" id="dashContent"></div></div>
+</div></section>
+<div class="modalback hidden" id="authModal"><div class="modal"><div class="modalhead"><div><div class="eyebrow">CRAFTCLOUD ACCOUNT</div><h2 id="authTitle" style="margin:7px 0">Create account</h2></div><button class="close" id="closeAuth" aria-label="Close">×</button></div><p class="muted" id="authSubtitle">Sign up with your email and a password.</p><div class="field"><label for="authEmail">Email address</label><input id="authEmail" type="email" autocomplete="email" placeholder="you@example.com"></div><div class="field" id="passwordField"><label for="authPassword">Password</label><input id="authPassword" type="password" autocomplete="new-password" placeholder="At least 6 characters"></div><div class="msg" id="authMsg"></div><button class="btn" style="width:100%" id="authSubmit">Create account</button><p class="muted" style="font-size:13px;text-align:center" id="authSwitchText">Already have an account? <a href="#" id="switchAuth" style="color:#8dbaff">Log in</a></p></div></div>
+<div class="modalback hidden" id="serverModal"><div class="modal"><div class="modalhead"><h2 style="margin:5px 0">Request a server</h2><button class="close" id="closeServer">×</button></div><p class="muted">This saves a local preview request only. It does not create a live Minecraft server yet.</p><div class="field"><label>Server name</label><input id="serverName" placeholder="My Survival SMP" maxlength="30"></div><div class="formrow"><div class="field"><label>Edition</label><select id="serverEdition"><option>Java</option><option>Bedrock</option></select></div><div class="field"><label>Version</label><select id="serverVersion"><option>1.21.11</option><option>1.21.10</option><option>1.21.8</option><option>1.20.1</option></select></div></div><div class="field"><label>Software</label><select id="serverSoftware"><option>Paper</option><option>Vanilla</option><option>Fabric</option><option>Purpur</option></select></div><div class="msg" id="serverMsg"></div><button class="btn" style="width:100%" id="saveServer">Save server request</button></div></div>
+<footer class="footer"><div class="wrap">© 2026 CraftCloud · Built for Minecraft communities · <span>Server infrastructure and payments are not connected yet.</span></div></footer>
+<script>
+/* Supabase public project settings. Publishable keys are designed for browser use.
+   Never put a Supabase secret/service-role key in this file. */
+const SUPABASE_URL = "https://smeqsvpqcukmuwjicfqz.supabase.co";
+const SUPABASE_ANON_KEY = "sb_publishable_RmTOjy7KGByFx4AR3ze6yw_vD2OFMGn";
+const SESSION_KEY = "craftcloud_supabase_session_v2";
+let authMode = "signup";
+let selectedPlan = "Free";
+let session = null;
+let servers = JSON.parse(localStorage.getItem("craftcloud_server_requests") || "[]");
+const $ = id => document.getElementById(id);
+function showMsg(id,text,type="success"){const el=$(id);el.textContent=text;el.className="msg show "+type;}
+function hideMsg(id){$(id).className="msg";}
+function getSession(){try{return JSON.parse(localStorage.getItem(SESSION_KEY)||"null")}catch{return null}}
+function setSession(s){session=s;if(s)localStorage.setItem(SESSION_KEY,JSON.stringify(s));else localStorage.removeItem(SESSION_KEY)}
+async function supabaseAuth(path,body,token){
+  const headers={"apikey":SUPABASE_ANON_KEY,"Content-Type":"application/json"};
+  if(token)headers.Authorization="Bearer "+token;
+  const res=await fetch(SUPABASE_URL+"/auth/v1/"+path,{method:"POST",headers,body:JSON.stringify(body)});
+  const data=await res.json().catch(()=>({}));
+  if(!res.ok)throw new Error(data.msg||data.message||data.error_description||data.error||"Request failed ("+res.status+")");
+  return data;
+}
+function openAuth(mode="signup",plan=null){authMode=mode;if(plan)selectedPlan=plan;$("authTitle").textContent=mode==="signup"?"Create your account":"Welcome back";$("authSubtitle").textContent=mode==="signup"?"Sign up with your email and a password.":"Log in to your CraftCloud account."; $("authSubmit").textContent=mode==="signup"?"Create account":"Log in";$("authSwitchText").innerHTML=mode==="signup"?'Already have an account? <a href="#" id="switchAuth" style="color:#8dbaff">Log in</a>':'New to CraftCloud? <a href="#" id="switchAuth" style="color:#8dbaff">Create account</a>'; $("authPassword").value="";$("authEmail").value="";hideMsg("authMsg");$("authModal").classList.remove("hidden");$("switchAuth").onclick=e=>{e.preventDefault();openAuth(authMode==="signup"?"login":"signup")};}
+function closeAuth(){$("authModal").classList.add("hidden")}
+async function submitAuth(){
+  const email=$("authEmail").value.trim(),password=$("authPassword").value;
+  hideMsg("authMsg");
+  if(!email||!password){showMsg("authMsg","Enter both your email and password.","error");return}
+  if(password.length<6){showMsg("authMsg","Use a password with at least 6 characters.","error");return}
+  const btn=$("authSubmit");btn.disabled=true;btn.textContent="Please wait...";
+  try{
+    if(authMode==="signup"){
+      const data=await supabaseAuth("signup",{email,password,data:{selected_plan:selectedPlan},gotrue_meta_security:{}});
+      if(data.access_token){setSession(data);closeAuth();renderApp()}
+      else{showMsg("authMsg","Account created. Check your email for the confirmation link, then log in. If no email arrives, check Spam.","success")}
+    }else{
+      const data=await supabaseAuth("token?grant_type=password",{email,password});
+      setSession(data);closeAuth();renderApp();
+    }
+  }catch(err){showMsg("authMsg",err.message,"error")}
+  finally{btn.disabled=false;btn.textContent=authMode==="signup"?"Create account":"Log in"}
+}
+function renderApp(){
+  $("landing").classList.add("hidden");$("dashboard").classList.remove("hidden");
+  $("userEmail").textContent=session?.user?.email||"Signed in";
+  renderTab("overview");
+  window.scrollTo(0,0);
+}
+function renderTab(tab){
+  document.querySelectorAll(".side button").forEach(b=>b.classList.toggle("active",b.dataset.tab===tab));
+  const content=$("dashContent");
+  if(tab==="overview"){content.innerHTML=`<h2>Account overview</h2><p class="muted">Your CraftCloud account is connected.</p><div class="grid"><div class="card"><span class="muted">Selected plan</span><h3>${escapeHtml(selectedPlan)}</h3><span class="pill">Plan selection preview</span></div><div class="card"><span class="muted">Server requests</span><h3>${servers.length}</h3><span class="pill">Saved on this device</span></div><div class="card"><span class="muted">Account status</span><h3 style="color:var(--green)">Signed in</h3><span class="pill">Supabase Auth</span></div></div><div class="notice">Server controls are not connected to a Minecraft hosting backend yet. Requests saved here are browser previews only.</div><button class="btn" id="overviewCreate">Request a server</button>`;$("overviewCreate").onclick=openServerModal}
+  if(tab==="servers"){content.innerHTML=`<h2>My servers</h2><p class="muted">Your saved server request previews.</p><button class="btn" id="serversCreate">+ Request a server</button>`+(servers.length?servers.map((s,i)=>`<div class="server-card"><div class="server-card-top"><div><strong>${escapeHtml(s.name)}</strong><div class="muted">${escapeHtml(s.edition)} · ${escapeHtml(s.version)} · ${escapeHtml(s.software)}</div></div><span class="status">● Awaiting backend</span></div><p class="muted" style="font-size:12px">Request preview #${i+1} · saved on this device</p><button class="btn secondary removeServer" data-index="${i}">Remove request</button></div>`).join(""):`<div class="server-empty"><h3>No server requests yet</h3><p>Request your first Minecraft server to see it here.</p></div>`);
+    $("serversCreate").onclick=openServerModal;document.querySelectorAll(".removeServer").forEach(b=>b.onclick=()=>{servers.splice(Number(b.dataset.index),1);localStorage.setItem("craftcloud_server_requests",JSON.stringify(servers));renderTab("servers")});
+  }
+  if(tab==="account"){content.innerHTML=`<h2>Account settings</h2><p class="muted">Signed in as</p><p><strong>${escapeHtml(session?.user?.email||"")}</strong></p><div class="notice">Your account is managed by Supabase. Keep your password private and never share it with anyone.</div><button class="btn secondary" id="accountLogout">Log out</button>`;$("accountLogout").onclick=logout}
+}
+function escapeHtml(v){return String(v).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
+function openServerModal(){hideMsg("serverMsg");$("serverName").value="";$("serverModal").classList.remove("hidden")}
+function saveServer(){const name=$("serverName").value.trim();if(!name){showMsg("serverMsg","Enter a server name first.","error");return}servers.push({name,edition:$("serverEdition").value,version:$("serverVersion").value,software:$("serverSoftware").value,createdAt:new Date().toISOString()});localStorage.setItem("craftcloud_server_requests",JSON.stringify(servers));$("serverModal").classList.add("hidden");renderTab("servers")}
+async function logout(){try{if(session?.access_token)await supabaseAuth("logout",{},session.access_token)}catch(e){}setSession(null);$("dashboard").classList.add("hidden");$("landing").classList.remove("hidden");window.scrollTo(0,0)}
+$("navLogin").onclick=()=>openAuth("login");$("navSignup").onclick=()=>openAuth("signup");$("heroStart").onclick=()=>openAuth("signup");$("closeAuth").onclick=closeAuth;$("authSubmit").onclick=submitAuth;$("logoutBtn").onclick=logout;$("closeServer").onclick=()=>$("serverModal").classList.add("hidden");$("saveServer").onclick=saveServer;
+document.querySelectorAll(".planBtn").forEach(b=>b.onclick=()=>{selectedPlan=b.dataset.plan;openAuth("signup",selectedPlan)});
+document.querySelectorAll(".side button").forEach(b=>b.onclick=()=>renderTab(b.dataset.tab));
+document.addEventListener("keydown",e=>{if(e.key==="Escape"){closeAuth();$("serverModal").classList.add("hidden")}});
+session=getSession();
+if(session?.access_token){renderApp()}else{setSession(null)}
+</script>
+</body>
+</html>
