@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CraftCloud — Client Area</title>
+<meta name="theme-color" content="#0a1020">
+<style>
+:root{--bg:#080d1b;--panel:#101a30;--panel2:#15223d;--line:#293754;--text:#f2f5ff;--muted:#a3aec8;--purple:#7776ff;--cyan:#55d4e9;--green:#4be09b}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 85% 20%,#202a55 0,transparent 38%),var(--bg);color:var(--text);font:16px/1.5 system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+header{position:sticky;top:0;z-index:5;background:#0b1122ee;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:14px max(20px,calc((100% - 1120px)/2));backdrop-filter:blur(12px)}
+.brand{display:flex;align-items:center;gap:12px;font-weight:800;font-size:21px}.logo{display:grid;place-items:center;width:48px;height:48px;border-radius:15px;background:linear-gradient(135deg,#6b8cff,#56d8e9);color:#081020;font-size:28px;font-weight:900}
+button,input{font:inherit}button{border:0;border-radius:12px;padding:12px 17px;background:linear-gradient(110deg,var(--purple),#8a6cff);color:white;font-weight:750;cursor:pointer}button.secondary{background:transparent;border:1px solid var(--line)}button:disabled{opacity:.5;cursor:wait}
+main{max-width:1120px;margin:auto;padding:36px 20px 70px}.intro{margin:25px 0 32px}.eyebrow{display:inline-block;border:1px solid #39466a;background:#192441;border-radius:99px;padding:7px 13px;color:#cbd4ff;font-weight:700}.intro h1{font-size:clamp(36px,7vw,62px);line-height:1.05;letter-spacing:-2px;margin:22px 0}.gradient{background:linear-gradient(90deg,#8a8aff,#55d4e9);-webkit-background-clip:text;color:transparent}.intro p{max-width:700px;color:var(--muted);font-size:18px}.layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(290px,.8fr);gap:22px;align-items:start}
+.card{background:linear-gradient(145deg,#15213b,#0c1427);border:1px solid var(--line);border-radius:22px;padding:24px;box-shadow:0 18px 60px #0002}.card h2{margin:0 0 8px;font-size:24px}.muted{color:var(--muted)}.tabs{display:flex;gap:8px;margin:18px 0}.tabs button{flex:1}.tabs .active{background:linear-gradient(110deg,var(--purple),#8a6cff)}.tabs button:not(.active){background:#111b30;border:1px solid var(--line);color:#cbd5ee}
+label{display:block;margin:13px 0 6px;color:#cbd5e9;font-size:14px;font-weight:650}input{width:100%;background:#080f20;color:white;border:1px solid #34415d;border-radius:11px;padding:13px 14px;outline:none}input:focus{border-color:#8584ff;box-shadow:0 0 0 3px #7776ff22}.full{width:100%;margin-top:17px}.message{min-height:26px;margin-top:12px;color:#9ee8c3;font-size:14px}.message.error{color:#ffaaaa}.hidden{display:none!important}.status{display:inline-flex;align-items:center;gap:8px;border-radius:99px;padding:7px 11px;background:#12382d;color:#8af0bd;font-size:13px;font-weight:800}.dot{width:8px;height:8px;background:var(--green);border-radius:50%}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:20px 0}.stat{background:#121f36;border:1px solid var(--line);border-radius:13px;padding:13px}.stat small{display:block;color:var(--muted)}.stat strong{font-size:22px}.actions{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}.actions button{padding:11px 5px}.console{background:#070d19;border:1px solid var(--line);border-radius:14px;padding:14px;margin-top:18px;color:#a9bad9;font:13px/1.7 ui-monospace,monospace;overflow-wrap:anywhere}.console b{color:#77e5ad}.note{font-size:13px;color:#9da9c4;margin-top:14px}.server-title{display:flex;justify-content:space-between;gap:10px;align-items:center}.foot{text-align:center;color:#8490aa;font-size:13px;margin-top:30px}
+@media(max-width:760px){.layout{grid-template-columns:1fr}.card{padding:19px}.intro{margin-top:18px}.stats{gap:7px}.stat{padding:10px}.stat strong{font-size:19px}header{padding:12px 16px}}
+</style>
+</head>
+<body>
+<header><div class="brand"><div class="logo">C</div>CraftCloud</div><button class="secondary" id="headerAuth" type="button">Sign in</button></header>
+<main>
+<section class="intro">
+<span class="eyebrow">● Minecraft hosting, reimagined</span>
+<h1>Your world.<br><span class="gradient">Your rules.</span></h1>
+<p>Welcome to the CraftCloud client area. Create an account to access your dashboard. This is an early account-connected demo; server controls are visual previews and do not start a Minecraft server yet.</p>
+</section>
+<div class="layout">
+<section class="card" id="authCard">
+<h2 id="authHeading">Welcome to CraftCloud</h2><p class="muted" id="authSub">Sign in or create an account with your email.</p>
+<div class="tabs"><button id="loginTab" class="active" type="button">Sign in</button><button id="signupTab" type="button">Create account</button></div>
+<form id="authForm">
+<label for="email">Email</label><input id="email" type="email" autocomplete="email" placeholder="you@example.com" required>
+<label for="password">Password</label><input id="password" type="password" autocomplete="current-password" minlength="8" placeholder="At least 8 characters" required>
+<button class="full" id="submitAuth" type="submit">Sign in</button>
+</form>
+<div class="message" id="authMessage" role="status"></div>
+<p class="note">Use an email you can access. Supabase may send a confirmation email before your first login.</p>
+</section>
+<section class="card hidden" id="dashboard">
+<div class="server-title"><div><div class="muted">CRAFTCLOUD / CLIENT AREA</div><h2 style="margin-top:7px">My dashboard</h2></div><span class="status"><span class="dot"></span>Account ready</span></div>
+<p class="muted">Signed in as <strong id="userEmail"></strong></p>
+<div class="stats"><div class="stat"><small>Servers</small><strong>0 / 1</strong></div><div class="stat"><small>Plan</small><strong>Free demo</strong></div><div class="stat"><small>RAM</small><strong>1 GB*</strong></div></div>
+<h3>My Minecraft server</h3><p class="muted">No real server has been provisioned yet.</p>
+<div class="actions"><button type="button" class="demoAction">▶ Start</button><button type="button" class="secondary demoAction">↻ Restart</button><button type="button" class="secondary demoAction">■ Stop</button></div>
+<div class="console"><b>[CraftCloud]</b> Client dashboard connected<br><span id="consoleLine">[System] Server provisioning is not connected yet.</span></div>
+<p class="note">*Illustrative plan only. These buttons are a UI preview and do not control a real server.</p>
+<button class="secondary full" id="signOut" type="button">Sign out</button>
+<div class="message" id="dashMessage" role="status"></div>
+</section>
+<section class="card" id="infoCard">
+<h2>What’s included?</h2><p class="muted">This first milestone connects user accounts. Next we can add protected server records, then connect a server panel when real compute is available.</p>
+<div class="console"><b>[Auth]</b> Email sign-up and sign-in<br><b>[Client]</b> Private dashboard after login<br><b>[Hosting]</b> Not connected yet</div>
+<p class="note">Never enter your database password or a Supabase Secret API key into this page.</p>
+</section>
+</div>
+<div class="foot">CraftCloud · Early access concept · Not a live Minecraft server provider yet</div>
+</main>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+const SUPABASE_URL = "https://smeqsvpqcukmuwjicfqz.supabase.co";
+const SUPABASE_PUBLISHABLE_KEY = "sb_publishable_RmTOjy7KGByFx4AR3ze6yw_vD2OFMGn";
+const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY);
+const $ = id => document.getElementById(id);
+let mode = "login";
+function setMode(next){
+  mode = next;
+  $("loginTab").classList.toggle("active",mode==="login");
+  $("signupTab").classList.toggle("active",mode==="signup");
+  $("authHeading").textContent = mode==="login" ? "Welcome back" : "Create your account";
+  $("authSub").textContent = mode==="login" ? "Sign in to open your client dashboard." : "Create a CraftCloud account with your email.";
+  $("submitAuth").textContent = mode==="login" ? "Sign in" : "Create account";
+  $("password").autocomplete = mode==="login" ? "current-password" : "new-password";
+  $("authMessage").textContent = "";
+  $("authMessage").className = "message";
+}
+function showUser(user){
+  $("authCard").classList.toggle("hidden",!!user);
+  $("dashboard").classList.toggle("hidden",!user);
+  $("infoCard").classList.toggle("hidden",!!user);
+  $("headerAuth").textContent = user ? "Dashboard" : "Sign in";
+  if(user) $("userEmail").textContent = user.email || "Signed-in user";
+}
+function message(text,error=false){
+  $("authMessage").textContent=text;
+  $("authMessage").className="message"+(error?" error":"");
+}
+$("loginTab").addEventListener("click",()=>setMode("login"));
+$("signupTab").addEventListener("click",()=>setMode("signup"));
+$("headerAuth").addEventListener("click",()=>{ if(!$("dashboard").classList.contains("hidden")) $("dashboard").scrollIntoView({behavior:"smooth"}); else $("authCard").scrollIntoView({behavior:"smooth"}); });
+$("authForm").addEventListener("submit",async e=>{
+  e.preventDefault();
+  const email=$("email").value.trim(), password=$("password").value;
+  const button=$("submitAuth"); button.disabled=true; message(mode==="login"?"Signing in…":"Creating account…");
+  try{
+    let result;
+    if(mode==="signup"){
+      result=await supabase.auth.signUp({email,password,options:{emailRedirectTo:window.location.href}});
+      if(result.error) throw result.error;
+      if(result.data.session){showUser(result.data.user);message("Account created and signed in.");}
+      else message("Account created. Check your email for a confirmation link, then come back and sign in.");
+    }else{
+      result=await supabase.auth.signInWithPassword({email,password});
+      if(result.error) throw result.error;
+      showUser(result.data.user); message("Signed in.");
+    }
+  }catch(err){message(err.message||"Something went wrong. Please try again.",true);}
+  finally{button.disabled=false;}
+});
+$("signOut").addEventListener("click",async()=>{
+  $("signOut").disabled=true;
+  const {error}=await supabase.auth.signOut();
+  $("signOut").disabled=false;
+  if(error){$("dashMessage").textContent=error.message;return;}
+  showUser(null);setMode("login");$("dashMessage").textContent="";
+});
+document.querySelectorAll(".demoAction").forEach(btn=>btn.addEventListener("click",()=>{
+  $("consoleLine").textContent="[Demo] "+btn.textContent.trim()+" clicked — real server control is not connected.";
+  $("dashMessage").textContent="Demo only: no Minecraft server was started, stopped, or restarted.";
+}));
+(async()=>{
+ const {data:{session}}=await supabase.auth.getSession();
+ showUser(session?.user||null);
+ supabase.auth.onAuthStateChange((_event,session)=>showUser(session?.user||null));
+})();
+</script>
+</body>
+</html>
